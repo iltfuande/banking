@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  app:
+    container_name: banking_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/banking
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    command: [ "/jre/bin/java", "-jar", "/app/banking.jar" ]
+    restart: on-failure
+
+  database:
+    image: postgres:17
+    container_name: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./volumes/database:/var/lib/postgresql/data"
+    restart: on-failure
+    environment:
+      POSTGRES_DB: banking
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password

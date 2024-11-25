@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: banking
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banking
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
