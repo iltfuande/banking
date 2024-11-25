@@ -49,29 +49,24 @@ This is a RESTful API for a basic banking system that supports account managemen
 git clone https://github.com/iltfuande/banking.git
 ```
 
-#### 2. Build the project
-```bash
-Windows ".\gradlew.bat clean build"
-
-Linux ".\gradlew clean build"
-```
-
-#### 3. Start the PostgreSQL database using Docker:
+#### 2. Start the PostgreSQL database using Docker:
 ```bash
 docker-compose up -d database
 ```
 
-#### 4. Start the Banking project using Docker:
+#### 3. Build the project
+```bash
+Windows "gradlew.bat clean build"
+
+Linux "gradlew clean build"
+```
+
+#### 4. Start the Banking project using Docker or Main class:
 ```bash
 docker-compose up -d app
 ```
 
-#### 5. Start the Banking project and the PostgreSQL Database a using Docker:
-```bash
-docker-compose up -d
-```
-
-#### 6. Swagger link:
+#### 5. Swagger link:
 ```bash
 http://localhost:8080/swagger-ui/index.html
 ```
